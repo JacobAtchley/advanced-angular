@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Subscription } from 'rxjs';
+import { DataService } from 'src/app/core/data.service';
 import { Book } from 'src/app/models/book';
 import { Reader } from 'src/app/models/reader';
-import { DataService } from 'src/app/core/data.service';
-import { Subscription } from 'rxjs';
 import { logEagerReader } from '../core/logEagerReaders.operators';
 
 @Component({
@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   allBooks: Book[];
   allReaders: Reader[];
   mostPopularBook: Book;
+  readerOfTheMonth: Reader;
 
   readersSubscription: Subscription;
   booksSubscription: Subscription;
@@ -46,6 +47,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       });
 
     this.mostPopularBook = this.dataService.mostPopularBook;
+    this.readerOfTheMonth = this.dataService.readerOfTheMonth;
 
     this.title.setTitle(`Book Tracker`);
   }

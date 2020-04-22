@@ -1,13 +1,13 @@
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
-
+import { map } from 'rxjs/operators';
 import { allBooks, allReaders } from 'src/app/data';
-import { Reader } from 'src/app/models/reader';
 import { Book } from 'src/app/models/book';
 import { BookTrackerError } from 'src/app/models/bookTrackerError';
 import { OldBook } from 'src/app/models/oldBook';
+import { Reader } from 'src/app/models/reader';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +17,14 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   mostPopularBook: Book = allBooks[0];
+  readerOfTheMonth: Reader;
 
   setMostPopularBook(popularBook: Book): void {
     this.mostPopularBook = popularBook;
+  }
+
+  setReaderOfTheMonth(readerOfTheMonth: Reader){
+    this.readerOfTheMonth = readerOfTheMonth;
   }
 
   getAllReaders(): Observable<Reader[]> {

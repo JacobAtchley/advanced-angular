@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
-import { Reader } from "src/app/models/reader";
-import { DataService } from 'src/app/core/data.service';
 import { BadgeService } from 'src/app/core/badge.service';
+import { DataService } from 'src/app/core/data.service';
+import { Reader } from "src/app/models/reader";
+
 
 @Component({
   selector: 'app-edit-reader',
@@ -28,5 +28,8 @@ export class EditReaderComponent implements OnInit {
 
   saveChanges() {
     console.warn('Save reader not yet implemented.');
+  }
+  makeReaderOfTheMonth(){
+    this.dataService.setReaderOfTheMonth(this.selectedReader);
   }
 }
