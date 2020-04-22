@@ -9,8 +9,7 @@ import { EditReaderComponent } from './edit-reader/edit-reader.component';
 import { EditBookComponent } from '../edit-book/edit-book.component';
 import { AddReaderComponent } from './add-reader/add-reader.component';
 import { FormsModule } from '@angular/forms';
-import { GreetingComponent } from 'projects/reader-library/src/lib/greeting/greeting.component';
-
+import { ReaderLibraryModule } from 'projects/reader-library/src/public-api';
 
 @NgModule({
   declarations: [
@@ -20,12 +19,12 @@ import { GreetingComponent } from 'projects/reader-library/src/lib/greeting/gree
     EditReaderComponent,
     EditBookComponent,
     AddReaderComponent,
-    GreetingComponent
   ],
   imports: [
     CommonModule,
     ReadersRoutingModule,
     FormsModule,
+    ReaderLibraryModule,
   ]
 })
 export class ReadersModule { }

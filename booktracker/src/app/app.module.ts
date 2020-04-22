@@ -15,7 +15,7 @@ import { ReadersModule } from './readers/readers.module';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReadersModule
+    ReadersModule,
   ],
   bootstrap: [AppComponent]
 })
