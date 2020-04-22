@@ -19,6 +19,10 @@ export class DataService {
   mostPopularBook: Book = allBooks[0];
   readerOfTheMonth: Reader;
 
+  setReaderOfTheMonth(readerOfTheMonth: Reader){
+    this.readerOfTheMonth = readerOfTheMonth;
+  }
+
   setMostPopularBook(popularBook: Book): void {
     this.mostPopularBook = popularBook;
   }
