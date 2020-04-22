@@ -9,8 +9,8 @@ export class InventoryComponent implements OnInit {
 
   branchName = '<branch name>';
   @Input()branchLibrarian: string;
-  @Output()increased = new EventEmitter<string>(undefined);
-  @Output()decreased = new EventEmitter<string>(undefined);
+  @Output()increased = new EventEmitter<number>(undefined);
+  @Output()decreased = new EventEmitter<number>(undefined);
 
   constructor() { }
 
@@ -18,10 +18,10 @@ export class InventoryComponent implements OnInit {
   }
 
   increaseInventory(amount: string) {
-    this.increased.emit(amount);
+    this.increased.emit(parseInt(amount,10));
   }
 
   decreaseInventory(amount: string){
-    this.decreased.emit(amount);
+    this.decreased.emit(parseInt(amount,10));
   }
 }
