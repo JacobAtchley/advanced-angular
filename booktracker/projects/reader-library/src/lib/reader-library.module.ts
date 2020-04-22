@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
-import { ReaderLibraryComponent } from './reader-library.component';
 import { GreetingComponent } from './greeting/greeting.component';
+import { ReaderGreetingComponent } from './reader-greeting/reader-greeting.component';
+import { ReaderLibraryComponent } from './reader-library.component';
 
 @NgModule({
-  declarations: [ReaderLibraryComponent, GreetingComponent],
+  declarations: [ReaderLibraryComponent, GreetingComponent, ReaderGreetingComponent],
   imports: [  ],
-  exports: [ReaderLibraryComponent, GreetingComponent]
+  exports: [ReaderLibraryComponent, GreetingComponent, ReaderGreetingComponent]
 })
+
 export class ReaderLibraryModule { }

@@ -23,12 +23,8 @@ export class DataService {
     this.mostPopularBook = popularBook;
   }
 
-  setReaderOfTheMonth(readerOfTheMonth: Reader){
-    this.readerOfTheMonth = readerOfTheMonth;
-  }
-
   getAllReaders(): Observable<Reader[]> {
-    return this.http.get<Reader[]>('/api/readers')
+    return this.http.get<Reader[]>('/api/readers');
   }
 
   getReaderById(id: number): Reader {
@@ -37,7 +33,8 @@ export class DataService {
   }
 
   getAllBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>('/api/books')
+    // URL to get all books is /api/books
+    return this.http.get<Book[]>('/api/books');
   }
 
   private handleHttpError(error: HttpErrorResponse): Observable<BookTrackerError> {
