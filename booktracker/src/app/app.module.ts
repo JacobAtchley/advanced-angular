@@ -11,6 +11,7 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { LibraryComponent } from './library/library.component';
 import { ReadersModule } from './readers/readers.module';
 import { SharedModule } from './shared/shared.module';
+import { ActivityLogComponent } from './activity-log/activity-log.component';
 
 
 
@@ -19,7 +20,8 @@ import { SharedModule } from './shared/shared.module';
     AppComponent,
     DashboardComponent,
     LibraryComponent,
-    InventoryComponent
+    InventoryComponent,
+    ActivityLogComponent
   ],
   imports: [
     BrowserModule,
