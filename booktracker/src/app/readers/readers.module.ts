@@ -9,7 +9,7 @@ import { EditReaderComponent } from './edit-reader/edit-reader.component';
 import { EditBookComponent } from '../edit-book/edit-book.component';
 import { AddReaderComponent } from './add-reader/add-reader.component';
 import { FormsModule } from '@angular/forms';
-import { ReaderLibraryModule } from 'projects/reader-library/src/public-api';
+import { ReaderLibraryModule } from 'reader-library';
 
 @NgModule({
   declarations: [
