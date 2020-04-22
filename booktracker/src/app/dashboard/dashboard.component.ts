@@ -1,7 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
-
 import { Book } from 'src/app/models/book';
 import { Reader } from 'src/app/models/reader';
 import { DataService } from 'src/app/core/data.service';
@@ -20,17 +18,23 @@ export class DashboardComponent implements OnInit, OnDestroy {
   mostPopularBook: Book;
 
   readersSubscription: Subscription;
+  booksSubscription: Subscription;
 
   constructor(private dataService: DataService,
               private title: Title) { }
 
   ngOnDestroy(): void {
     this.readersSubscription?.unsubscribe();
+    this.booksSubscription?.unsubscribe();
   }
 
   ngOnInit() {
 
-    this.allBooks = this.dataService.getAllBooks();
+    this.booksSubscription = this.dataService.getAllBooks()
+    .subscribe({
+      next: (books) => this.allBooks = books,
+      error: (error) => console.log('Error Getting Books....', error)
+    });
 
     this.readersSubscription = this.dataService.getAllReaders()
       .pipe(
