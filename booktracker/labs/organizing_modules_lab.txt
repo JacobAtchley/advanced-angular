@@ -1,22 +1,22 @@
 Create a Feature Module
 -----------------------
 
-	1. Use the Angular CLI to create a new feature module for "Readers".
-	2. Migrate the existing "add-reader" and "edit-reader" components from the App module to the new Readers module.
-	3. Update the import path to the "add-reader" and "edit-reader" components after moving them to the Readers module.
-	4. Import the FormsModule in the new Readers module.
-	5. Bonus: Add a Shared module to the project.
-	6. Build and run the app.
-	7. Open the app in a browser to make sure everything still works.
+	x 1. Use the Angular CLI to create a new feature module for "Readers".
+	x 2. Migrate the existing "add-reader" and "edit-reader" components from the App module to the new Readers module.
+	x 3. Update the import path to the "add-reader" and "edit-reader" components after moving them to the Readers module.
+	x 4. Import the FormsModule in the new Readers module.
+	x 5. Bonus: Add a Shared module to the project.
+	x 6. Build and run the app.
+	x 7. Open the app in a browser to make sure everything still works.
 
 
 Create a Shared Library
 -----------------------
 
-	1. Generate a new "reader-library" shared library with the Angular CLI.
-	2. Add a "greeting" component to the library that will display a welcome message for new readers.
-	3. Import the library into the "readers" feature module.
-	4. Display the new library component at the top of the "Add Reader" component.
-	5. Build the new library.
-	6. Build the main app.
-	7. Test and make sure your library component is displayed in the app.
+	x 1. Generate a new "reader-library" shared library with the Angular CLI.
+	x 2. Add a "greeting" component to the library that will display a welcome message for new readers.
+	x 3. Import the library into the "readers" feature module.
+	x 4. Display the new library component at the top of the "Add Reader" component.
+	x 5. Build the new library.
+	x 6. Build the main app.
+	x 7. Test and make sure your library component is displayed in the app.
