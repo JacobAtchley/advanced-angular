@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Book } from '../models/book';
-import { DataService } from '../core/data.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { DataService } from '../core/data.service';
+import { Book } from '../models/book';
 
 @Component({
   selector: 'app-library',
@@ -28,4 +28,11 @@ export class LibraryComponent implements OnInit, OnDestroy {
     this.bookSubscription.unsubscribe();
   }
 
+  onIncreased(amount:string){
+    console.log('On Increase', amount);
+  }
+
+  onDecreased(amount:string){
+    console.log('On Decrease', amount);
+  }
 }
