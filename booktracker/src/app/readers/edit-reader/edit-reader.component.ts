@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BadgeService } from 'src/app/core/badge.service';
 import { DataService } from 'src/app/core/data.service';
-import { Reader } from "src/app/models/reader";
+import { Reader } from 'src/app/models/reader';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class EditReaderComponent implements OnInit {
               private badgeService: BadgeService) { }
 
   ngOnInit() {
-    let readerID: number = parseInt(this.route.snapshot.params['id']);
+    const readerID: number = parseInt(this.route.snapshot.params.id, 10);
     this.selectedReader = this.dataService.getReaderById(readerID);
     this.currentBadge = this.badgeService.getReaderBadge(this.selectedReader.totalMinutesRead);
   }
@@ -29,6 +29,7 @@ export class EditReaderComponent implements OnInit {
   saveChanges() {
     console.warn('Save reader not yet implemented.');
   }
+
   makeReaderOfTheMonth(){
     this.dataService.setReaderOfTheMonth(this.selectedReader);
   }

@@ -1,8 +1,7 @@
 <h1>Welcome to the Library!</h1>
 <h3>Total number of books available: {{ totalBookCount }} </h3>
 
-<app-inventory [branchLibrarian]="'Mrs. Smith'"
-(decreased)="onDecreased($event)"
-(increased)="onIncreased($event)"
->
+<app-inventory [branchName]="branch"
+               [branchLibrarian]="branchLibrarian"
+               (decreased)="onDecrease($event)">
 </app-inventory>

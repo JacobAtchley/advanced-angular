@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { DataService } from '../core/data.service';
+import { InventoryService } from '../core/inventory.service';
 import { Book } from '../models/book';
+import { DataService } from '../core/data.service';
 
 @Component({
   selector: 'app-library',
@@ -12,10 +13,16 @@ export class LibraryComponent implements OnInit, OnDestroy {
 
   totalBookCount: number;
   allBooks: Book[];
-  branch: string = 'Midtown';
+  branch = 'Midtown';
+  branchLibrarian = 'Bookish Learner';
   bookSubscription: Subscription;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService,
+              private inventoryService: InventoryService) {
+    this.inventoryService.inventory$.subscribe(
+      amount => this.totalBookCount += amount
+    );
+  }
 
   ngOnInit() {
     this.bookSubscription = this.dataService.getAllBooks()
@@ -28,11 +35,12 @@ export class LibraryComponent implements OnInit, OnDestroy {
     this.bookSubscription.unsubscribe();
   }
 
-  onIncreased(amount:string){
-    console.log('On Increase', amount);
+  onIncrease(amount: number) {
+    this.totalBookCount += amount;
   }
 
-  onDecreased(amount:string){
-    console.log('On Decrease', amount);
+  onDecrease(amount: number) {
+    this.totalBookCount -= amount;
   }
+
 }

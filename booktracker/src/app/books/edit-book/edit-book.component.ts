@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { BooksState } from '../books.reducer';
+import * as BookActions from '../books.actions';
 
 import { Book } from 'src/app/models/book';
 import { DataService } from 'src/app/core/data.service';
@@ -14,7 +17,8 @@ export class EditBookComponent implements OnInit {
   selectedBook: Book;
 
   constructor(private route: ActivatedRoute,
-              private dataService: DataService) { }
+              private dataService: DataService,
+              private store: Store<BooksState>) { }
 
   ngOnInit() {
     let bookID: number = parseInt(this.route.snapshot.params['id']);
@@ -26,7 +30,8 @@ export class EditBookComponent implements OnInit {
   }
 
   setMostPopular(): void {
-    this.dataService.setMostPopularBook(this.selectedBook);
+    //this.dataService.setMostPopularBook(this.selectedBook);
+    this.store.dispatch(BookActions.updateFavoriteBook({ favoriteBook: this.selectedBook }));
   }
 
   saveChanges(): void {

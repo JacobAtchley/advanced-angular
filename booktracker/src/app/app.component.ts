@@ -9,9 +9,7 @@ import { ActivityLogService } from './core/activity-log.service';
 export class AppComponent {
   title = 'app';
 
-  constructor(private readonly _logService: ActivityLogService){
-
-  }
+  constructor(private readonly _logService: ActivityLogService){ }
 
   public log(log: string){
     this._logService.logActivity(log);

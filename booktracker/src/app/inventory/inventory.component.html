@@ -2,7 +2,7 @@
   <div class="well bs-component">
     <form class="form-horizontal">
       <fieldset>
-        <legend>Add New Books - {{ branchName }} {{branchLibrarian}}</legend>
+        <legend>Add New Books - {{ branchName }} ({{ branchLibrarian }})</legend>
         <div class="form-group">
           <label for="inputTitle" class="col-lg-3 control-label">Number to add</label>
           <div class="col-lg-8">
@@ -10,13 +10,9 @@
           </div>
         </div>
         <div class="form-group">
-          <div class="col-lg-10 col-lg-offset-3">
-            <div class="col-lg-4">
-              <button (click)="increaseInventory(numberToAdd.value)" class="btn btn-primary">Add Books</button>
-            </div>
-            <div class="col-lg-4">
-              <button (click)="decreaseInventory(numberToAdd.value)" class="btn btn-primary">Remove Books</button>
-            </div>
+          <div class="col-lg-8 col-lg-offset-3">
+            <button (click)="increaseInventory(numberToAdd.value)" class="btn btn-primary">Add Books</button>
+            <button (click)="decreaseInventory(numberToAdd.value)" class="btn btn-primary">Reduce Books</button>
           </div>
         </div>
       </fieldset>
