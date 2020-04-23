@@ -12,6 +12,7 @@ import { logNewerBooks, logEagerReaders } from '../core/book_tracker_operators';
 import { ActivityLogService } from '../core/activity-log.service';
 import { BooksState } from '../books/books.reducer';
 import { getFavoriteBook } from '../books/books.selectors';
+import { logEagerReader } from '../core/logEagerReaders.operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,8 +24,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
   allBooks: Book[];
   allReaders: Reader[];
   mostPopularBook: Book;
-  bookSubscription: Subscription;
-  readerSubscription: Subscription;
+  booksSubscription: Subscription;
+  readersSubscription: Subscription;
   readerOfTheMonth: Reader;
   favoriteBookSubscription: Subscription;
 
@@ -50,8 +51,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
         error: (error) => console.log('Error Getting Readers....', error)
       });
 
-    // this.mostPopularBook = this.dataService.mostPopularBook;
-
     this.favoriteBookSubscription = this.store.pipe(
       select(getFavoriteBook)
     )
@@ -65,8 +64,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.bookSubscription?.unsubscribe();
-    this.readerSubscription?.unsubscribe();
+    this.booksSubscription?.unsubscribe();
+    this.readersSubscription?.unsubscribe();
     this.favoriteBookSubscription?.unsubscribe();
   }
 
