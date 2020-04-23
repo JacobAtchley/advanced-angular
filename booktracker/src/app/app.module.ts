@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { StoreModule } from '@ngrx/store';
@@ -17,6 +17,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { LibraryComponent } from './library/library.component';
 import { ActivityLogComponent } from './activity-log/activity-log.component';
+import { LogUrlInterceptor } from './core/log-url.interceptor';
+import { LoggerService } from './core/logger.service';
 
 
 @NgModule({
@@ -41,6 +43,11 @@ import { ActivityLogComponent } from './activity-log/activity-log.component';
       name: 'BookTracker'
     })
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: LogUrlInterceptor, multi: true
+    },
+  ]
 })
 export class AppModule { }
