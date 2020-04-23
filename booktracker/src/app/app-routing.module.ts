@@ -8,7 +8,8 @@ import { ReadersRoutingModule } from './readers/readers-routing.module';
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'library', component: LibraryComponent },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'readers', loadChildren: () => import('./readers/readers.module').then(m => m.ReadersModule) }
 ];
 
 @NgModule({
