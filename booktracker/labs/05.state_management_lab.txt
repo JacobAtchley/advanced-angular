@@ -3,12 +3,12 @@ NgRx Lab
 
   Update the app so that the Reader of the Month is now being stored in an NgRx store rather than a service.
 
-  1. Checkout either the "ngrx_demo_complete" tag or the "redux_devtools_demo_complete" tag.
-  2. Update "readers.module.ts" to import the StoreModule and call its "forFeature" method in the "imports" array.
-  3. Create a file named "readers.actions.ts" in the "readers" folder and create an action to represent a change to the reader of the month.
-  4. Create a file named "readers.reducer.ts" in the "readers" folder and create a reducer to process reader state changes.
-  5. Create a file named "readers.selectors.ts" in the "selectors" folder and create a selector to retrieve the reader of the month from the store.
-  6. Open "edit-reader.component.ts" and dispatch the new action when a new reader of the month is chosen.
-  7. Update the StoreModule import in "readers.module.ts" to include the new reducer.
+  x 1. Checkout either the "ngrx_demo_complete" tag or the "redux_devtools_demo_complete" tag.
+  x 2. Update "readers.module.ts" to import the StoreModule and call its "forFeature" method in the "imports" array.
+  x 3. Create a file named "readers.actions.ts" in the "readers" folder and create an action to represent a change to the reader of the month.
+  x 4. Create a file named "readers.reducer.ts" in the "readers" folder and create a reducer to process reader state changes.
+  x 5. Create a file named "readers.selectors.ts" in the "selectors" folder and create a selector to retrieve the reader of the month from the store.
+  x 6. Open "edit-reader.component.ts" and dispatch the new action when a new reader of the month is chosen.
+  x 7. Update the StoreModule import in "readers.module.ts" to include the new reducer.
   8. Update the DashboardComponent to subscribe to reader of the month changes and update the component when they are received.
   9. Run the app and test that Reader of the Month state is now being persisted in the store.

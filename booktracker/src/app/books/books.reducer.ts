@@ -13,7 +13,7 @@ export const initialState: BooksState = {
 
 const _booksReducer = createReducer(
   initialState,
-  on(BookActions.updateFavoriteBook, (state, { favoriteBook }) => ({ ...state, favoriteBook: favoriteBook }))
+  on(BookActions.updateFavoriteBook, (state, { favoriteBook }) => ({ ...state, favoriteBook }))
 );
 
 export function booksReducer(state: BooksState | undefined, action: Action) {

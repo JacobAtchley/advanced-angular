@@ -21,7 +21,7 @@ export class EditBookComponent implements OnInit {
               private store: Store<BooksState>) { }
 
   ngOnInit() {
-    let bookID: number = parseInt(this.route.snapshot.params['id']);
+    const bookID: number = parseInt(this.route.snapshot.params.id, 10);
     this.dataService.getBookById(bookID)
       .subscribe(
         (data: Book) => this.selectedBook = data,
@@ -30,7 +30,7 @@ export class EditBookComponent implements OnInit {
   }
 
   setMostPopular(): void {
-    //this.dataService.setMostPopularBook(this.selectedBook);
+    // this.dataService.setMostPopularBook(this.selectedBook);
     this.store.dispatch(BookActions.updateFavoriteBook({ favoriteBook: this.selectedBook }));
   }
 
