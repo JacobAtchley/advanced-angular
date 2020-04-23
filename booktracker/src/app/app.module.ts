@@ -7,7 +7,6 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppRoutingModule } from './app-routing.module';
-import { BooksModule } from './books/books.module';
 import { SharedModule } from './shared/shared.module';
 import { BookLibraryModule } from 'book-library';
 
@@ -17,8 +16,8 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { LibraryComponent } from './library/library.component';
 import { ActivityLogComponent } from './activity-log/activity-log.component';
 import { LogUrlInterceptor } from './core/log-url.interceptor';
-import { LoggerService } from './core/logger.service';
-
+import { ReadersStoreModule } from './readers/readers.store.module';
+import { BooksStoreModule } from './books/books.store.module';
 
 @NgModule({
   declarations: [
@@ -33,13 +32,14 @@ import { LoggerService } from './core/logger.service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BooksModule,
     SharedModule,
     BookLibraryModule,
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       name: 'BookTracker'
-    })
+    }),
+    ReadersStoreModule,
+    BooksStoreModule
   ],
   bootstrap: [AppComponent],
   providers: [

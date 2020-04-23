@@ -5,8 +5,7 @@ import { ReaderLibraryModule } from 'reader-library';
 import { AddReaderComponent } from './add-reader/add-reader.component';
 import { EditReaderComponent } from './edit-reader/edit-reader.component';
 import { ReadersRoutingModule } from './readers-routing.module';
-import { StoreModule } from '@ngrx/store';
-import { readersReducer } from './readers.reducer';
+import { ReadersStoreModule } from './readers.store.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,7 @@ import { readersReducer } from './readers.reducer';
     FormsModule,
     ReadersRoutingModule,
     ReaderLibraryModule,
-    StoreModule.forFeature('readers', readersReducer)
+    ReadersStoreModule,
   ]
 })
-export class ReadersModule { }
+export class ReadersModule { };

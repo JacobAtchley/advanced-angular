@@ -62,7 +62,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       book => this.mostPopularBook = book
     );
 
-    this.readerOfTheMonthSubscription = this.store.pipe(
+    this.readerOfTheMonthSubscription = this.readersStore.pipe(
       select(getReaderOfTheMonth)
     )
     .subscribe(
